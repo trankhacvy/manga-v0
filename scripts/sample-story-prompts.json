@@ -1,0 +1,112 @@
+{
+  "story": {
+    "title": "The Last Samurai Student",
+    "genre": "Shonen Action",
+    "synopsis": "Akira, a modern high school student, discovers he's the last descendant of a legendary samurai clan. When ancient demons threaten Tokyo, he must master his ancestral sword techniques to protect his friends and the city.",
+    "pages": 8
+  },
+  "characters": [
+    {
+      "name": "Akira Takeshi",
+      "handle": "@akira",
+      "role": "protagonist",
+      "prompt": "Professional shonen manga character design sheet, full body reference.\n\nCharacter: Akira Takeshi, 17-year-old male protagonist\nPhysical: Spiky black hair with natural texture, determined brown eyes with slight bags underneath (from training), athletic lean build (175cm, 68kg), small scar on left cheek\nClothing: Modern Japanese school uniform - slightly wrinkled white shirt with rolled sleeves, navy blazer worn open, red striped tie loosened, dark grey pants, worn brown leather shoes. Alternative outfit: Traditional black hakama with white gi top, wooden sandals\nPersonality: Determined, brave, slightly hot-headed, fiercely loyal, self-doubting but grows confident\n\nLayout: Character turnaround showing front view, 3/4 view, side profile, and back view\nStyle: Clean black ink lineart with varied line weights, professional shonen manga character sheet\nBackground: Pure white, minimal cast shadows for depth\nQuality: High detail, anatomically correct proportions, consistent design across all views\n\nAdditional: Include 6 facial expressions - neutral (calm), happy (wide grin), angry (furrowed brow), determined (intense gaze), surprised (wide eyes), exhausted (heavy breathing)\nReference style: Similar to Izuku Midoriya from My Hero Academia or Tanjiro from Demon Slayer, professional Shonen Jump quality"
+    },
+    {
+      "name": "Yuki Shimizu",
+      "handle": "@yuki",
+      "role": "supporting",
+      "prompt": "Professional shonen manga character design sheet, full body reference.\n\nCharacter: Yuki Shimizu, 16-year-old female supporting character\nPhysical: Long straight black hair in high ponytail, intelligent grey eyes behind thin-rimmed glasses, petite athletic build (162cm), graceful posture\nClothing: School uniform - white blouse, navy vest, red bow tie, pleated grey skirt, black knee socks, brown loafers. Carries leather satchel with books\nPersonality: Intelligent, analytical, calm under pressure, secretly admires Akira, skilled in ancient texts\n\nLayout: Character turnaround showing front view, 3/4 view, side profile, and back view\nStyle: Clean black ink lineart, professional shonen manga character sheet\nBackground: Pure white, minimal shadows\nQuality: High detail, consistent proportions, professional anime/manga art style\n\nAdditional: Include 4 facial expressions - neutral (composed), happy (gentle smile), worried (concerned), focused (analyzing)\nReference style: Similar to Ochaco Uraraka from My Hero Academia, professional quality"
+    },
+    {
+      "name": "Demon Lord Kurogane",
+      "handle": "@kurogane",
+      "role": "antagonist",
+      "prompt": "Professional shonen manga villain character design sheet, full body reference.\n\nCharacter: Kurogane, ancient demon lord (appears 30s), main antagonist\nPhysical: Long flowing white hair, glowing red eyes, tall imposing build (195cm), sharp features, pale skin with dark markings\nClothing: Traditional black and red demon armor with ornate patterns, flowing dark cape, armored boots, carries cursed katana\nPersonality: Ruthless, cunning, ancient wisdom, seeks revenge on samurai bloodline\n\nLayout: Character turnaround showing front view, 3/4 view, side profile, and back view\nStyle: Clean black ink lineart with heavy shadows, professional shonen manga villain design\nBackground: Pure white with dark aura effects\nQuality: High detail, intimidating presence, professional anime/manga art style\n\nAdditional: Include 4 facial expressions - menacing (evil grin), angry (rage), calm (cold stare), battle-ready (intense)\nReference style: Similar to villains from Demon Slayer or Bleach, professional Shonen Jump quality"
+    }
+  ],
+  "pages": [
+    {
+      "pageNumber": 1,
+      "layoutSuggestion": "focus-panel",
+      "panels": [
+        {
+          "panelIndex": 0,
+          "prompt": "Professional manga panel illustration, black and white.\n\nScene: Wide establishing shot of Tokyo high school at sunset\nComposition: Wide angle view from street level, looking up at modern school building\nDetails: Cherry blossom trees in foreground with falling petals, school building in midground with lit windows, dramatic orange and purple clouds in background\nAtmosphere: Golden hour lighting, peaceful yet slightly melancholic mood, end of school day\nCharacters: None visible, empty scene setting the stage\n\nArt style: Professional shonen manga illustration\nTechnique: Clean ink lines, screentone shading for sky gradients, high contrast blacks and whites\nQuality: Detailed architecture, atmospheric perspective, cinematic composition\nReference: Similar to opening panels in My Hero Academia or Haikyuu!!\n\nPanel format: Large horizontal landscape panel, top of page, establishing shot",
+          "shotType": "establishing",
+          "cameraAngle": "eye-level",
+          "characters": [],
+          "dialogue": "",
+          "narration": "Shibuya High School, Tokyo. 5:47 PM.",
+          "soundEffects": []
+        },
+        {
+          "panelIndex": 1,
+          "prompt": "Professional manga panel illustration, black and white.\n\nScene: School hallway interior, late afternoon\nComposition: Medium shot from side angle, character walking through empty hallway\nDetails: Lockers lining walls, windows showing sunset light, long shadows on floor, classroom doors visible\nAtmosphere: Quiet, peaceful, golden light streaming through windows\nCharacters: Akira walking alone, school bag over shoulder, looking tired, hand in pocket\n\nArt style: Professional shonen manga illustration\nTechnique: Clean ink lines, screentone shading for lighting effects, detailed background\nQuality: Atmospheric perspective, clear character silhouette, professional manga art\nReference: Similar to slice-of-life panels in shonen manga\n\nPanel format: Medium horizontal panel, character in motion",
+          "shotType": "medium",
+          "cameraAngle": "eye-level",
+          "characters": ["@akira"],
+          "dialogue": "Another day of pretending everything's normal...",
+          "narration": "",
+          "soundEffects": ["footsteps"]
+        },
+        {
+          "panelIndex": 2,
+          "prompt": "Professional manga panel illustration, black and white.\n\nScene: Close-up of Akira's face, looking at his hand\nComposition: Close-up shot, character's face and raised hand in frame\nDetails: Akira's determined eyes looking at his palm, slight sweat on forehead, school uniform collar visible\nAtmosphere: Tense, introspective, dramatic lighting from side\nCharacters: Akira, close-up facial expression showing internal conflict\n\nArt style: Professional shonen manga illustration\nTechnique: Bold ink lines for facial features, dramatic shadows, high contrast\nQuality: Detailed facial expression, emotional impact, professional manga art\nReference: Similar to emotional close-ups in Demon Slayer\n\nPanel format: Vertical panel, emotional beat",
+          "shotType": "close-up",
+          "cameraAngle": "eye-level",
+          "characters": ["@akira"],
+          "dialogue": "These strange marks... they're getting stronger.",
+          "narration": "",
+          "soundEffects": []
+        },
+        {
+          "panelIndex": 3,
+          "prompt": "Professional manga panel illustration, black and white.\n\nScene: Sudden appearance of glowing mystical symbols on Akira's hand\nComposition: Extreme close-up of palm with glowing ancient kanji symbols\nDetails: Hand in center, glowing mystical symbols floating above palm, energy particles, dramatic lighting\nAtmosphere: Mysterious, supernatural, intense moment\nCharacters: Only Akira's hand visible\n\nArt style: Professional shonen manga illustration with supernatural effects\nTechnique: Bold ink lines, white highlights for glow effects, radiating energy lines\nQuality: Dramatic impact, clear mystical symbols, professional manga art\nReference: Similar to power awakening scenes in My Hero Academia or Jujutsu Kaisen\n\nPanel format: Small square panel, dramatic reveal",
+          "shotType": "extreme-close-up",
+          "cameraAngle": "eye-level",
+          "characters": ["@akira"],
+          "dialogue": "!",
+          "narration": "",
+          "soundEffects": ["GLOW", "SHIMMER"]
+        }
+      ]
+    },
+    {
+      "pageNumber": 2,
+      "layoutSuggestion": "action-spread",
+      "panels": [
+        {
+          "panelIndex": 0,
+          "prompt": "Dynamic manga action panel, black and white.\n\nACTION: Sudden demon attack, creature bursting through window\nCharacter: Large demon creature with multiple arms, sharp claws, glowing red eyes\nMotion: Explosive entry from right side, glass shattering, debris flying\nEffects: Impact lines radiating from entry point, glass shards in motion, speed lines\n\nComposition: Dynamic diagonal composition from lower left to upper right\nForeground: Demon's clawed hand reaching toward camera\nBackground: Shattered window, classroom interior, motion blur\n\nArt style: High-energy shonen manga action scene\nTechnique: Bold ink lines, dramatic speed lines, high contrast blacks, impact effects\nQuality: Dynamic composition, clear action flow, professional manga art\nReference: Similar to demon attack scenes in Demon Slayer\n\nMood: Intense, shocking, dangerous",
+          "shotType": "wide",
+          "cameraAngle": "low-angle",
+          "characters": [],
+          "dialogue": "",
+          "narration": "",
+          "soundEffects": ["CRASH", "SHATTER"]
+        },
+        {
+          "panelIndex": 1,
+          "prompt": "Professional manga panel illustration, black and white.\n\nScene: Akira's shocked reaction to demon appearance\nComposition: Medium close-up, character's face showing extreme surprise\nDetails: Wide eyes, mouth open in shock, sweat drops, hair blown back by impact wind\nAtmosphere: Intense shock, fear, adrenaline moment\nCharacters: Akira, extreme surprised expression\n\nArt style: Professional shonen manga illustration\nTechnique: Bold expressive lines, dramatic shadows, impact lines around face\nQuality: Intense emotional expression, professional manga art\nReference: Similar to reaction shots in shonen manga\n\nPanel format: Vertical panel, reaction shot",
+          "shotType": "close-up",
+          "cameraAngle": "eye-level",
+          "characters": ["@akira"],
+          "dialogue": "What the—?!",
+          "narration": "",
+          "soundEffects": []
+        },
+        {
+          "panelIndex": 2,
+          "prompt": "Dynamic manga action panel, black and white.\n\nACTION: Akira instinctively dodging demon's attack\nCharacter: Akira leaping backward, body in dynamic mid-air pose\nMotion: Backward leap, demon's claw swiping through where he was standing\nEffects: Motion blur on movement, speed lines, impact lines where claw strikes\n\nComposition: Wide shot showing full action, diagonal composition\nForeground: Demon's claw in motion\nBackground: Classroom interior, desks and chairs\n\nArt style: High-energy shonen manga action scene\nTechnique: Bold ink lines, dramatic speed lines, clear action flow\nQuality: Dynamic movement, professional manga art\nReference: Similar to dodge scenes in My Hero Academia\n\nMood: Fast-paced, intense, survival instinct",
+          "shotType": "wide",
+          "cameraAngle": "eye-level",
+          "characters": ["@akira"],
+          "dialogue": "",
+          "narration": "His body moved on its own—",
+          "soundEffects": ["WHOOSH", "SLASH"]
+        }
+      ]
+    }
+  ]
+}

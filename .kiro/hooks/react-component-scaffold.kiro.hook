@@ -1,0 +1,19 @@
+{
+  "enabled": true,
+  "name": "React Component Scaffolder",
+  "description": "When a new React component file (.tsx) is created, automatically add React imports, TypeScript props interface, functional component structure, export statement, and create a corresponding test file",
+  "version": "1",
+  "when": {
+    "type": "fileCreated",
+    "patterns": [
+      "**/*.tsx",
+      "!**/*.test.tsx",
+      "!**/node_modules/**",
+      "!**/.next/**"
+    ]
+  },
+  "then": {
+    "type": "askAgent",
+    "prompt": "A new React component file has been created at {filePath}. Please scaffold it with:\n\n1. Import statements for React and commonly used hooks (useState, useEffect, etc. as needed)\n2. A TypeScript interface for the component props (named appropriately based on the component name)\n3. A functional component using the props interface\n4. A default export statement\n5. Basic JSX structure with appropriate semantic HTML\n6. If this is a UI component in the components folder, consider adding className prop for styling flexibility\n\nAdditionally, create a skeleton test file in the same directory or appropriate __tests__ directory with:\n- Basic imports for React Testing Library\n- A describe block for the component\n- A simple render test\n- Test file should be named {componentName}.test.tsx\n\nPlease analyze the file path and component name to determine the appropriate structure and naming conventions."
+  }
+}

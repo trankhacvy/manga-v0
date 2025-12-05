@@ -1,0 +1,29 @@
+{
+  "enabled": true,
+  "name": "Security Vulnerability Scanner",
+  "description": "Automatically reviews changed files for potential security issues including API keys, tokens, credentials, private keys, encryption keys, certificates, authentication tokens, session IDs, passwords, secrets in configuration files, IP addresses with sensitive data, hardcoded internal URLs, and database connection credentials. For each issue found, highlights the specific security risk, suggests a secure alternative approach, and recommends security best practices.",
+  "version": "1",
+  "when": {
+    "type": "fileEdited",
+    "patterns": [
+      "**/*.ts",
+      "**/*.tsx",
+      "**/*.js",
+      "**/*.jsx",
+      "**/*.json",
+      "**/*.env",
+      "**/*.env.*",
+      "**/*.config.*",
+      "**/*.sql",
+      "**/*.yaml",
+      "**/*.yml",
+      "**/*.toml",
+      "**/*.ini",
+      "**/*.conf"
+    ]
+  },
+  "then": {
+    "type": "askAgent",
+    "prompt": "Review the changed files for potential security vulnerabilities. Specifically look for:\n\n1. **API Keys & Tokens**: Search for patterns like API_KEY, APIKEY, api-key, token, access_token, secret_key\n2. **Private Keys & Certificates**: Look for BEGIN PRIVATE KEY, BEGIN RSA PRIVATE KEY, BEGIN CERTIFICATE, .pem, .key files\n3. **Encryption Keys**: Identify encryption keys, cipher keys, or cryptographic secrets\n4. **Authentication Tokens**: Find JWT tokens, bearer tokens, auth tokens, session tokens\n5. **Passwords & Secrets**: Detect password=, pwd=, secret=, credentials in code or config files\n6. **Sensitive IP Addresses**: Flag IP addresses that might expose internal infrastructure\n7. **Hardcoded URLs**: Identify hardcoded internal URLs, database URLs, or service endpoints\n8. **Database Credentials**: Spot database connection strings, usernames, passwords in connection configs\n\nFor each security issue you find:\n1. **Highlight the Risk**: Clearly state what the security vulnerability is and why it's dangerous\n2. **Suggest Alternatives**: Recommend secure approaches like environment variables, secret management services (AWS Secrets Manager, HashiCorp Vault), or encrypted configuration\n3. **Best Practices**: Provide actionable security recommendations such as:\n   - Use environment variables for sensitive data\n   - Never commit .env files (ensure .gitignore is configured)\n   - Rotate exposed credentials immediately\n   - Use secret management tools\n   - Implement proper access controls\n   - Use encrypted storage for sensitive configuration\n\nIf no security issues are found, confirm that the files appear secure. Be thorough but concise in your analysis."
+  }
+}
