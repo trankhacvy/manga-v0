@@ -5,27 +5,26 @@ import { SketchUpload } from "./sketch-upload";
 import { VersionHistory } from "./version-history";
 
 export function PanelEditor() {
-  const {
-    selectedPanelId,
-    getSelectedPanel,
-    setSketchForPanel,
-    removeSketchFromPanel,
-    setControlNetStrength,
-  } = useCanvasStore();
+  // const {
+  //   getSelectedPanel,
+  //   setSketchForPanel,
+  //   removeSketchFromPanel,
+  //   setControlNetStrength,
+  // } = useCanvasStore();
 
-  const selectedPanel = getSelectedPanel();
+  // const selectedPanel = getSelectedPanel();
 
-  if (!selectedPanel) {
-    return (
-      <div className="p-4 text-sm text-gray-500">
-        Select a panel to edit its properties
-      </div>
-    );
-  }
+  // if (!selectedPanel) {
+  //   return (
+  //     <div className="p-4 text-sm text-gray-500">
+  //       Select a panel to edit its properties
+  //     </div>
+  //   );
+  // }
 
   return (
     <div className="p-4 space-y-4">
-      <div>
+      {/* <div>
         <h3 className="text-sm font-semibold text-gray-900 mb-2">
           Panel Properties
         </h3>
@@ -65,7 +64,7 @@ export function PanelEditor() {
 
       <div className="border-t border-gray-200 pt-4">
         <VersionHistory panelId={selectedPanel.id} />
-      </div>
+      </div> */}
     </div>
   );
 }

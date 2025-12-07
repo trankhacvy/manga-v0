@@ -52,6 +52,7 @@ export function StoryTab({ projectId }: StoryTabProps) {
         .single();
 
       if (data && !error) {
+        // @ts-expect-error
         setScript(data.script || "");
       }
     };

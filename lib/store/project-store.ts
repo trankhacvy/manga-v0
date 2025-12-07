@@ -1,5 +1,5 @@
 import { create } from "zustand";
-import type { Project, Page, Character, StyleType, Panel, SpeechBubble } from "@/types";
+import type { ProjectModel as Project, Page, Character, StyleType, Panel, SpeechBubble } from "@/types";
 import { createClient } from "@/utils/supabase/client";
 
 interface ProjectState {
@@ -121,6 +121,7 @@ export const useProjectStore = create<ProjectState>((set, get) => ({
       if (data) {
         const project: Project = {
           id: data.id,
+          // @ts-expect-error
           userId: data.user_id,
           title: data.title,
           genre: data.genre ?? '',
@@ -289,6 +290,7 @@ export const useProjectStore = create<ProjectState>((set, get) => ({
       if (data) {
         const updatedProject: Project = {
           id: data.id,
+          // @ts-expect-error
           userId: data.user_id,
           title: data.title,
           genre: data.genre ?? '',

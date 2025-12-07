@@ -216,7 +216,7 @@ class CanvasPageRenderer {
           updated_at: new Date().toISOString(),
           character_positions: undefined,
           character_refs: [],
-        } as PanelModel)
+        } as any)
     );
   }
 

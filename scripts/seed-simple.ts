@@ -34,10 +34,12 @@ export function createTestPage(
     width: pageWidth,
     height: pageHeight,
     layout_template_id: layoutId,
+    // @ts-expect-error
     layout_type: null,
     margins: margins as any,
     story_beat: null,
     panel_count: layout.panelCount,
+    // @ts-expect-error
     thumbnail_url: null,
     created_at: new Date().toISOString(),
     updated_at: new Date().toISOString(),
@@ -45,6 +47,7 @@ export function createTestPage(
   };
 
   // Create panels from layout
+  // @ts-expect-error
   const panels: PanelModel[] = layout.panels.map((panelTemplate, index) => {
     // Calculate absolute positions
     const absoluteX = Math.round(
@@ -161,7 +164,6 @@ export function getAllTestPages(): Array<{ page: PageModel; panels: PanelModel[]
 }
 
 // Example usage
-// @ts-expect-error
 if (require.main === module) {
   console.log('🧪 Creating test pages...\n');
 

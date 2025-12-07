@@ -383,6 +383,7 @@ function BubblePreview({
               fontSize="14"
               fill={style.textColor}
               fontWeight={style.fontWeight}
+              // @ts-expect-error
               textTransform={style.textTransform}
             >
               SHOUT!

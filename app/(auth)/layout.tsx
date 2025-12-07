@@ -1,3 +1,5 @@
+import { Suspense } from "react";
+
 export default function AuthLayout({
   children,
 }: {
@@ -5,7 +7,7 @@ export default function AuthLayout({
 }) {
   return (
     <div className="min-h-screen w-full bg-background-light dark:bg-background-dark">
-      {children}
+      <Suspense>{children}</Suspense>
     </div>
   );
 }

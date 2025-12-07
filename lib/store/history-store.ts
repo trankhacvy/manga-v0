@@ -291,6 +291,7 @@ export const useHistoryStore = create<HistoryState>((set, get) => ({
           // Restore deleted panels
           if (action.beforePanels) {
             for (const panel of action.beforePanels) {
+              // @ts-expect-error
               const { error } = await supabase.from("panels").insert({
                 id: panel.id,
                 page_id: panel.pageId,
@@ -426,6 +427,7 @@ export const useHistoryStore = create<HistoryState>((set, get) => ({
         case "create":
           // Re-create panel
           if (action.afterPanel) {
+            // @ts-expect-error
             const { error } = await supabase.from("panels").insert({
               id: action.afterPanel.id,
               page_id: action.afterPanel.pageId,

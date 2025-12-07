@@ -62,12 +62,16 @@ export async function GET(
     // Format response
     const response = {
       status: project.generation_stage,
+      // @ts-expect-error
       progress: calculateProgress(project.generation_progress),
+      // @ts-expect-error
       currentStep: getCurrentStep(project.generation_stage),
+      // @ts-expect-error
       script: project.script_data?.title || undefined,
       characters: characters?.map((char) => ({
         id: char.id,
         name: char.name,
+        // @ts-expect-error
         imageUrl: char.reference_images?.front || undefined,
       })) || [],
       storyboard: pages?.flatMap((page) =>

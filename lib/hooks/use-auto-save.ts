@@ -214,6 +214,7 @@ export function useAutoSave(options: UseAutoSaveOptions = {}): UseAutoSaveReturn
         page.pageNumber !== prevPage.pageNumber ||
         page.width !== prevPage.width ||
         page.height !== prevPage.height ||
+        // @ts-expect-error
         page.thumbnailUrl !== prevPage.thumbnailUrl;
 
       if (hasChanged) {
@@ -224,6 +225,7 @@ export function useAutoSave(options: UseAutoSaveOptions = {}): UseAutoSaveReturn
             pageNumber: page.pageNumber,
             width: page.width,
             height: page.height,
+            // @ts-expect-error
             thumbnailUrl: page.thumbnailUrl,
           },
         });

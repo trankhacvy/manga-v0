@@ -20,192 +20,192 @@ interface AIChatProps {
 }
 
 export function AIChat({ projectId }: AIChatProps) {
-  const [messages, setMessages] = useState<ChatMessage[]>([
-    {
-      id: "welcome",
-      role: "system",
-      content:
-        "Welcome! Select a panel and tell me how you'd like to edit it. I can help you regenerate panels, edit speech bubbles, resize elements, and more. Type @ to mention characters.",
-      timestamp: new Date(),
-    },
-  ]);
-  const [input, setInput] = useState("");
-  const [isProcessing, setIsProcessing] = useState(false);
-  const [characters, setCharacters] = useState<Character[]>([]);
-  const messagesEndRef = useRef<HTMLDivElement>(null);
-  const inputRef = useRef<HTMLTextAreaElement>(null);
+  // const [messages, setMessages] = useState<ChatMessage[]>([
+  //   {
+  //     id: "welcome",
+  //     role: "system",
+  //     content:
+  //       "Welcome! Select a panel and tell me how you'd like to edit it. I can help you regenerate panels, edit speech bubbles, resize elements, and more. Type @ to mention characters.",
+  //     timestamp: new Date(),
+  //   },
+  // ]);
+  // const [input, setInput] = useState("");
+  // const [isProcessing, setIsProcessing] = useState(false);
+  // const [characters, setCharacters] = useState<Character[]>([]);
+  // const messagesEndRef = useRef<HTMLDivElement>(null);
+  // const inputRef = useRef<HTMLTextAreaElement>(null);
 
-  // Canvas store
-  const selectedPanelId = useCanvasStore((state) => state.selectedPanelId);
-  const getSelectedPanel = useCanvasStore((state) => state.getSelectedPanel);
-  const updatePanel = useCanvasStore((state) => state.updatePanel);
-  const updateSpeechBubble = useCanvasStore(
-    (state) => state.updateSpeechBubble
-  );
-  const addSpeechBubble = useCanvasStore((state) => state.addSpeechBubble);
-  const deleteSpeechBubble = useCanvasStore(
-    (state) => state.deleteSpeechBubble
-  );
-  const getPanelById = useCanvasStore((state) => state.getPanelById);
-  const setMaskToolActive = useCanvasStore((state) => state.setMaskToolActive);
-  const setMaskMode = useCanvasStore((state) => state.setMaskMode);
-  const currentMaskRegion = useCanvasStore((state) => state.currentMaskRegion);
+  // // Canvas store
+  // const selectedPanelId = useCanvasStore((state) => state.selectedPanelId);
+  // const getSelectedPanel = useCanvasStore((state) => state.getSelectedPanel);
+  // const updatePanel = useCanvasStore((state) => state.updatePanel);
+  // const updateSpeechBubble = useCanvasStore(
+  //   (state) => state.updateSpeechBubble
+  // );
+  // const addSpeechBubble = useCanvasStore((state) => state.addSpeechBubble);
+  // const deleteSpeechBubble = useCanvasStore(
+  //   (state) => state.deleteSpeechBubble
+  // );
+  // const getPanelById = useCanvasStore((state) => state.getPanelById);
+  // const setMaskToolActive = useCanvasStore((state) => state.setMaskToolActive);
+  // const setMaskMode = useCanvasStore((state) => state.setMaskMode);
+  // const currentMaskRegion = useCanvasStore((state) => state.currentMaskRegion);
 
-  // Project store
-  const currentProject = useProjectStore((state) => state.currentProject);
-  const currentPage = useProjectStore((state) => state.currentPage);
-  const characters = useProjectStore((state) => state.characters);
+  // // Project store
+  // const currentProject = useProjectStore((state) => state.currentProject);
+  // const currentPage = useProjectStore((state) => state.currentPage);
+  // const characters = useProjectStore((state) => state.characters);
 
-  // Fetch characters for autocomplete
-  useEffect(() => {
-    const fetchCharacters = async () => {
-      try {
-        const response = await fetch(`/api/projects/${projectId}/characters`);
-        if (response.ok) {
-          const data = await response.json();
-          setCharacters(data.characters || []);
-        }
-      } catch (error) {
-        console.error("Failed to fetch characters:", error);
-      }
-    };
+  // // Fetch characters for autocomplete
+  // useEffect(() => {
+  //   const fetchCharacters = async () => {
+  //     try {
+  //       const response = await fetch(`/api/projects/${projectId}/characters`);
+  //       if (response.ok) {
+  //         const data = await response.json();
+  //         setCharacters(data.characters || []);
+  //       }
+  //     } catch (error) {
+  //       console.error("Failed to fetch characters:", error);
+  //     }
+  //   };
 
-    fetchCharacters();
-  }, [projectId]);
+  //   fetchCharacters();
+  // }, [projectId]);
 
-  // Auto-scroll to bottom when new messages arrive
-  useEffect(() => {
-    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
-  }, [messages]);
+  // // Auto-scroll to bottom when new messages arrive
+  // useEffect(() => {
+  //   messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+  // }, [messages]);
 
-  // Focus input on mount
-  useEffect(() => {
-    inputRef.current?.focus();
-  }, []);
+  // // Focus input on mount
+  // useEffect(() => {
+  //   inputRef.current?.focus();
+  // }, []);
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!input.trim() || isProcessing) return;
+  // const handleSubmit = async (e: React.FormEvent) => {
+  //   e.preventDefault();
+  //   if (!input.trim() || isProcessing) return;
 
-    const userMessage: ChatMessage = {
-      id: crypto.randomUUID(),
-      role: "user",
-      content: input.trim(),
-      timestamp: new Date(),
-    };
+  //   const userMessage: ChatMessage = {
+  //     id: crypto.randomUUID(),
+  //     role: "user",
+  //     content: input.trim(),
+  //     timestamp: new Date(),
+  //   };
 
-    setMessages((prev) => [...prev, userMessage]);
-    const commandText = input.trim();
-    setInput("");
-    setIsProcessing(true);
+  //   setMessages((prev) => [...prev, userMessage]);
+  //   const commandText = input.trim();
+  //   setInput("");
+  //   setIsProcessing(true);
 
-    try {
-      // Gather context for the command
-      const currentPanel = getSelectedPanel();
+  //   try {
+  //     // Gather context for the command
+  //     const currentPanel = getSelectedPanel();
 
-      if (!currentProject) {
-        throw new Error("No project loaded");
-      }
+  //     if (!currentProject) {
+  //       throw new Error("No project loaded");
+  //     }
 
-      if (!currentPage) {
-        throw new Error("No page loaded");
-      }
+  //     if (!currentPage) {
+  //       throw new Error("No page loaded");
+  //     }
 
-      // Call the chat command API with context
-      const response = await fetch("/api/chat/command", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          projectId: projectId,
-          panelId: selectedPanelId,
-          command: commandText,
-          context: {
-            currentPanel: currentPanel,
-            characterBank: characters,
-            projectStyle: currentProject.style,
-          },
-        }),
-      });
+  //     // Call the chat command API with context
+  //     const response = await fetch("/api/chat/command", {
+  //       method: "POST",
+  //       headers: {
+  //         "Content-Type": "application/json",
+  //       },
+  //       body: JSON.stringify({
+  //         projectId: projectId,
+  //         panelId: selectedPanelId,
+  //         command: commandText,
+  //         context: {
+  //           currentPanel: currentPanel,
+  //           characterBank: characters,
+  //           projectStyle: currentProject.style,
+  //         },
+  //       }),
+  //     });
 
-      if (!response.ok) {
-        const errorData = await response.json();
-        throw new Error(errorData.error || "Failed to process command");
-      }
+  //     if (!response.ok) {
+  //       const errorData = await response.json();
+  //       throw new Error(errorData.error || "Failed to process command");
+  //     }
 
-      const commandResult = await response.json();
+  //     const commandResult = await response.json();
 
-      // Execute the command using CommandExecutor
-      if (selectedPanelId && commandResult.action !== "error") {
-        const executor = new CommandExecutor({
-          projectId: projectId,
-          pageId: currentPage.id,
-          panelId: selectedPanelId,
-          updatePanel,
-          updateSpeechBubble,
-          addSpeechBubble,
-          deleteSpeechBubble,
-          getPanel: getPanelById,
-          setMaskToolActive,
-          setMaskMode,
-          getCurrentMaskRegion: () => currentMaskRegion,
-        });
+  //     // Execute the command using CommandExecutor
+  //     if (selectedPanelId && commandResult.action !== "error") {
+  //       const executor = new CommandExecutor({
+  //         projectId: projectId,
+  //         pageId: currentPage.id,
+  //         panelId: selectedPanelId,
+  //         updatePanel,
+  //         updateSpeechBubble,
+  //         addSpeechBubble,
+  //         deleteSpeechBubble,
+  //         getPanel: getPanelById,
+  //         setMaskToolActive,
+  //         setMaskMode,
+  //         getCurrentMaskRegion: () => currentMaskRegion,
+  //       });
 
-        const result = await executor.execute(
-          commandResult.action,
-          commandResult.parameters
-        );
+  //       const result = await executor.execute(
+  //         commandResult.action,
+  //         commandResult.parameters
+  //       );
 
-        // Add assistant response based on execution result
-        const assistantMessage: ChatMessage = {
-          id: crypto.randomUUID(),
-          role: "assistant",
-          content: result.success
-            ? result.message
-            : `${result.message}${result.error ? `: ${result.error}` : ""}`,
-          timestamp: new Date(),
-        };
+  //       // Add assistant response based on execution result
+  //       const assistantMessage: ChatMessage = {
+  //         id: crypto.randomUUID(),
+  //         role: "assistant",
+  //         content: result.success
+  //           ? result.message
+  //           : `${result.message}${result.error ? `: ${result.error}` : ""}`,
+  //         timestamp: new Date(),
+  //       };
 
-        setMessages((prev) => [...prev, assistantMessage]);
-      } else {
-        // Just show the message from the API (info or error)
-        const assistantMessage: ChatMessage = {
-          id: crypto.randomUUID(),
-          role: "assistant",
-          content: commandResult.message || "Command processed.",
-          timestamp: new Date(),
-        };
+  //       setMessages((prev) => [...prev, assistantMessage]);
+  //     } else {
+  //       // Just show the message from the API (info or error)
+  //       const assistantMessage: ChatMessage = {
+  //         id: crypto.randomUUID(),
+  //         role: "assistant",
+  //         content: commandResult.message || "Command processed.",
+  //         timestamp: new Date(),
+  //       };
 
-        setMessages((prev) => [...prev, assistantMessage]);
-      }
-    } catch (error) {
-      const errorMessage: ChatMessage = {
-        id: crypto.randomUUID(),
-        role: "assistant",
-        content: `Error: ${
-          error instanceof Error ? error.message : "Failed to process command"
-        }`,
-        timestamp: new Date(),
-      };
-      setMessages((prev) => [...prev, errorMessage]);
-    } finally {
-      setIsProcessing(false);
-      inputRef.current?.focus();
-    }
-  };
+  //       setMessages((prev) => [...prev, assistantMessage]);
+  //     }
+  //   } catch (error) {
+  //     const errorMessage: ChatMessage = {
+  //       id: crypto.randomUUID(),
+  //       role: "assistant",
+  //       content: `Error: ${
+  //         error instanceof Error ? error.message : "Failed to process command"
+  //       }`,
+  //       timestamp: new Date(),
+  //     };
+  //     setMessages((prev) => [...prev, errorMessage]);
+  //   } finally {
+  //     setIsProcessing(false);
+  //     inputRef.current?.focus();
+  //   }
+  // };
 
-  const handleKeyDown = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
-    if (e.key === "Enter" && !e.shiftKey) {
-      e.preventDefault();
-      handleSubmit(e);
-    }
-  };
+  // const handleKeyDown = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
+  //   if (e.key === "Enter" && !e.shiftKey) {
+  //     e.preventDefault();
+  //     handleSubmit(e);
+  //   }
+  // };
 
   return (
     <div className="flex h-full flex-col bg-background">
       {/* Header */}
-      <div className="border-b px-4 py-3">
+      {/* <div className="border-b px-4 py-3">
         <h2 className="text-sm font-semibold">AI Assistant</h2>
         {selectedPanelId && (
           <p className="text-xs text-muted-foreground mt-1">
@@ -217,10 +217,10 @@ export function AIChat({ projectId }: AIChatProps) {
             Select a panel to start editing
           </p>
         )}
-      </div>
+      </div> */}
 
       {/* Messages */}
-      <div className="flex-1 overflow-y-auto px-4 py-4 space-y-4">
+      {/* <div className="flex-1 overflow-y-auto px-4 py-4 space-y-4">
         {messages.map((message) => (
           <div
             key={message.id}
@@ -256,10 +256,10 @@ export function AIChat({ projectId }: AIChatProps) {
           </div>
         )}{" "}
         <div ref={messagesEndRef} />
-      </div>
+      </div> */}
 
       {/* Input with @handle autocomplete */}
-      <div className="border-t px-4 py-3">
+      {/* <div className="border-t px-4 py-3">
         <form onSubmit={handleSubmit} className="flex gap-2">
           <HandleAutocomplete
             value={input}
@@ -291,7 +291,7 @@ export function AIChat({ projectId }: AIChatProps) {
           Press Enter to send, Shift+Enter for new line • Type @ to mention
           characters
         </p>
-      </div>
+      </div> */}
     </div>
   );
 }

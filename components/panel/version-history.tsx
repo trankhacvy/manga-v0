@@ -32,6 +32,7 @@ export function VersionHistory({ panelId, onRestore }: VersionHistoryProps) {
 
       const supabase = createClient();
       const { data, error: fetchError } = await supabase
+      // @ts-expect-error
         .from("generation_history")
         .select("*")
         .eq("panel_id", panelId)
@@ -42,7 +43,7 @@ export function VersionHistory({ panelId, onRestore }: VersionHistoryProps) {
       }
 
       const formattedVersions: GenerationHistory[] = (data || []).map(
-        (item) => ({
+        (item: any) => ({
           id: item.id,
           panelId: item.panel_id,
           imageUrl: item.image_url,

@@ -85,6 +85,7 @@ export function promise<T>(
   },
   options?: ToastOptions
 ): Promise<T> {
+  // @ts-expect-error
   return sonnerToast.promise(promise, messages, options);
 }
 

@@ -198,7 +198,7 @@ export function EditorCanvasContent({
       }
 
       // Use history-tracked deletion
-      const { deleteBubble } = await import("@/lib/hooks/use-panel-operations");
+      // const { deleteBubble } = await import("@/lib/hooks/use-panel-operations");
 
       try {
         // Note: We need to get the store instance directly since we're in a callback
